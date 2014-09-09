@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[SendGrid Documentation | SendGrid]]></title>
+  <link href="https://nquinlan.github.io/docs/atom.xml" rel="self"/>
+  <link href="https://nquinlan.github.io/docs/"/>
+  <updated>2014-09-09T15:22:24-07:00</updated>
+  <id>https://nquinlan.github.io/docs/</id>
+  <author>
+    <name><![CDATA[SendGrid]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>

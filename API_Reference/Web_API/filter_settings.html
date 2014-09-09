@@ -1,0 +1,3569 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<!-- SendGrid Docs Version 1.1.23 -->
+<head>
+  <meta charset="utf-8">
+  
+    
+    <title>Filter Settings - SendGrid Documentation | SendGrid</title>
+  
+  <meta name="author" content="SendGrid">
+
+  
+    
+  
+
+  
+  
+  
+  
+  <link rel="canonical" href="https://nquinlan.github.io/docs/API_Reference/Web_API/filter_settings.html"/>
+  
+
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="/images/favicon.ico" rel="icon">
+
+  <link href="/assets/global-f10deda0249ac6dbcfabbbff801c41f0.css" rel="stylesheet" type='text/css' />
+
+  <script type="text/javascript">
+
+  filename = "/assets/global-92685393eede4b27b1c04bcdcc8c53eb.js"
+
+   // Add a script element as a child of the body
+   function downloadJSAtOnload() {
+   var element = document.createElement("script");
+   element.src = filename;
+   document.body.appendChild(element);
+   }
+
+   // Check for browser support of event handling capability
+   if (window.addEventListener)
+   window.addEventListener("load", downloadJSAtOnload, false);
+   else if (window.attachEvent)
+   window.attachEvent("onload", downloadJSAtOnload);
+   else window.onload = downloadJSAtOnload;
+
+  </script>
+
+  <link href="/atom.xml" rel="alternate" title="SendGrid Documentation | SendGrid" type="application/atom+xml">
+  
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PQC59L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PQC59L');</script>
+<!-- End Google Tag Manager -->
+  
+</head>
+
+
+<body  class="  logged-out" itemscope itemtype="http://schema.org/WebPage">
+
+  <div id="header">
+  <div id="header-top">
+      <div class="container-fluid">
+          <div class="row pull-right col-md-1 hidden-xs logged-out login-link">
+            <a href="https://sendgrid.com/login">Sign In</a>
+          </div>
+      </div>
+  </div>
+  <div class="navbar navbar-static-top" id="nav">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="navbar-header col-md-3">
+        <a href="//sendgrid.com"><span id="logo"></span></a>
+        <button type="button" class="navbar-toggle"
+          data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-list collapsed-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse col-sm-4" id="navbar">
+        <ul class="nav navbar-nav" id="nav-links">
+          <li class="nav-link ">
+            <a href="/index.html">Docs Home</a>
+          </li>
+          <li class="nav-link">
+            <a href="/code_workshop.html">Code Workshop</a>
+          </li>
+          <li class="nav-link ">
+            <a href="/VidGrid/index.html">VidGrid</a>
+          </li>
+          <li class="nav-link">
+            <a href="http://support.sendgrid.com/">Support</a>
+          </li>
+          <li class="nav-link visible-xs">
+            <a href="http://sendgrid.com/marketing/request-demo" class="btn btn-primary btn-block">Contact Us</a>
+            <a href="https://sendgrid.com/user/signup" class="btn btn-success btn-block logged-out">Sign Up</a>
+            <a href="https://sendgrid.com/login" class="btn btn-default btn-block logged-out">Sign In</a>
+          </li>
+        </ul>
+      </div>
+      <div class="pull-right navbar-buttons hidden-xs">
+        <a href="http://sendgrid.com/marketing/request-demo" class="btn btn-primary">Contact Us</a>
+        <a href="https://sendgrid.com/user/signup"class="btn btn-success logged-out">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div itemscope itemtype='https://schema.org/Brand'>
+    <meta content='SendGrid' itemprop='name'>
+    <link href='http://www.freebase.com/m/0wr97kd' itemprop='sameAs'>
+  </div>
+  <div class="container-fluid">
+    <div class="row" id="content">
+      
+    
+<div class="col-md-3 col-sm-3 nopadding">
+    <div id="sidebar-header" class="visible-xs navbar-header col-md-3">
+      <h3>Menu</h3>
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+        data-target="#sidebar">
+        <span class="sr-only">Toggle Documentation Tree</span>
+        <span class="icon-arrow-down"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse nopadding" id="sidebar">
+      
+      <form class="navbar-search">
+        <div class="input-group">
+          <input type="text" id="query" class="form-control search-query" name="q" placeholder="Search Documentation">
+          <span class="input-group-btn">
+            <button class="btn btn-primary">
+              <span class="icon-search"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+
+	  <nav itemscope itemtype="http://schema.org/SiteNavigationElement"><ul id="nav-menu" class="nav nav-list"><li class=><a href="/index.html"><span class="icon-home"></span>Docs Home</a></li><li class=><a href="/code_workshop.html"><span class="icon-apiworkshop_v2"></span>Code Workshop</a></li>	<li id="node-8a52ace95047ffc87794724b7c4a9281" class="parent collapsibleListOpen"><div class="subtree-name">API Reference</div>	 <ul  class="nav nav-list">	 <li class=><a href="/API_Reference/index.html">API Reference Index</a></li>	 	<li id="node-aef7bb35ae95b00d2effee70fe911a52" class="parent collapsibleListClosed"><div class="subtree-name">SMTP API</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/API_Reference/SMTP_API/index.html">SMTP API Overview</a></li>	 	 <li class=><a href="/API_Reference/SMTP_API/smtpapi_validator.html">SMTP API Header Validator</a></li>	 	 <li class=><a href="/API_Reference/SMTP_API/apps.html">Apps (Filters)</a></li>	 	 <li class=><a href="/API_Reference/SMTP_API/categories.html">Categories</a></li>	 	 <li class=><a href="/API_Reference/SMTP_API/scheduling_parameters.html">Scheduling Parameters</a></li>	 	 <li class=><a href="/API_Reference/SMTP_API/section_tags.html">Section Tags</a></li>	 	 <li class=><a href="/API_Reference/SMTP_API/substitution_tags.html">Substitution Tags</a></li>	 	 <li class=><a href="/API_Reference/SMTP_API/unique_arguments.html">Unique Arguments</a></li>	 	  </ul></li>	 	<li id="node-b0f0d5be2bcf162184781bf97aec716d" class="parent collapsibleListOpen"><div class="subtree-name">Web API</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/API_Reference/Web_API/index.html">Web API Overview</a></li>	 	 <li class=><a href="/API_Reference/Web_API/blocks.html">Blocks</a></li>	 	 <li class=><a href="/API_Reference/Web_API/bounces.html">Bounces</a></li>	 	 <li class=><a href="/API_Reference/Web_API/filter_commands.html">Filter Commands</a></li>	 	 <li class=active><a href="/API_Reference/Web_API/filter_settings.html">Filter Settings</a></li>	 	 <li class=><a href="/API_Reference/Web_API/invalid_emails.html">Invalid Emails</a></li>	 	 <li class=><a href="/API_Reference/Web_API/mail.html">Mail</a></li>	 	 <li class=><a href="/API_Reference/Web_API/multiple_credentials.html">Multiple Credentials</a></li>	 	 <li class=><a href="/API_Reference/Web_API/parse_settings.html">Parse Webhook Settings</a></li>	 	 <li class=><a href="/API_Reference/Web_API/profile.html">Profile</a></li>	 	 <li class=><a href="/API_Reference/Web_API/spam_reports.html">Spam Reports</a></li>	 	 <li class=><a href="/API_Reference/Web_API/unsubscribes.html">Unsubscribes</a></li>	 	 	<li id="node-618292753ab9ce06fc97d39f3a6acaf4" class="parent collapsibleListClosed"><div class="subtree-name">Statistics</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/API_Reference/Web_API/Statistics/index.html">General Statistics</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API/Statistics/statistics_advanced.html">Advanced Statistics</a></li>	 	 	  </ul></li>	 	  </ul></li>	 	<li id="node-90235f2cb860fbcbd079ee29acc7587d" class="parent collapsibleListClosed"><div class="subtree-name">Web API v3</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/API_Reference/Web_API_v3/index.html">API v3 Overview</a></li>	 	 	<li id="node-1e8a193b1c037e8ee75282dc639db5d5" class="parent collapsibleListClosed"><div class="subtree-name">Advanced Suppression Manager</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/API_Reference/Web_API_v3/Advanced_Suppression_Manager/index.html">Advanced Suppression Manager Overview</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/Advanced_Suppression_Manager/groups.html">Groups</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/Advanced_Suppression_Manager/suppressions.html">Supressions</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/Advanced_Suppression_Manager/global_suppressions.html">Global Supressions</a></li>	 	 	  </ul></li>	 	 	<li id="node-1fce5b090717c4755d9f5d33b53ab065" class="parent collapsibleListClosed"><div class="subtree-name">IP Management</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/API_Reference/Web_API_v3/IP_Management/index.html">IP Management Overview</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/IP_Management/ip_addresses.html">IP Addresses</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/IP_Management/ip_pools.html">IP Pools</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/IP_Management/ip_warmup.html">IP Warmup</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/IP_Management/ip_warmup_schedule.html">IP Warmup Schedule</a></li>	 	 	  </ul></li>	 	 	<li id="node-1d8bc0842dba67c6f482cdb2931c4228" class="parent collapsibleListClosed"><div class="subtree-name">Template Engine</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/API_Reference/Web_API_v3/Template_Engine/index.html">Template Engine Overview</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/Template_Engine/templates.html">Templates</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/Template_Engine/versions.html">Versions</a></li>	 	 	 <li class=><a href="/API_Reference/Web_API_v3/Template_Engine/smtpapi.html">Using Template Engine with SMTP API</a></li>	 	 	  </ul></li>	 	  </ul></li>	 	<li id="node-e0784a128dd24cee066e2748272619dc" class="parent collapsibleListClosed"><div class="subtree-name">Webhooks</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/API_Reference/Webhooks/index.html">Webhooks Overview</a></li>	 	 <li class=><a href="/API_Reference/Webhooks/debug.html">Debugging Webhooks</a></li>	 	 <li class=><a href="/API_Reference/Webhooks/event.html">Event Webhook</a></li>	 	 <li class=><a href="/API_Reference/Webhooks/event_deprecated.html">Event V1/V2 (deprecated)</a></li>	 	 <li class=><a href="/API_Reference/Webhooks/parse.html">Inbound Parse Webhook</a></li>	 	  </ul></li>	 	<li id="node-74b51dc260c6e13029f1cd9e9a5e5b74" class="parent collapsibleListClosed"><div class="subtree-name">Customer Subuser API</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/index.html">Customer Subuser API Overview</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/account_limits.html">Account Limits</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/apps.html">Apps</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/authenticate_a_subuser.html">Authenticate a Subuser</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/automatic_login.html">Automatic Login</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/event_notification_url.html">Event Notification URL</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/invalid_emails.html">Invalid Emails</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/ip_management.html">IP Management</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/monitor_records.html">Monitor Records</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/parse_settings.html">Parse Settings</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/statistics.html">Statistics</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/subuser_bounces.html">Subuser Bounces</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/subuser_spam_reports.html">Subuser Spam Reports</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/subuser_unsubscribes.html">Subuser Unsubscribes</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/subusers.html">Subusers</a></li>	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/whitelabel.html">Whitelabel</a></li>	 	 	<li id="node-12f3ac7e6a04ebccdd6d31c752da0c53" class="parent collapsibleListClosed"><div class="subtree-name">v1 (deprecated)</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/v1_(deprecated)/index.html">Customer Subuser API v1 (deprecated)</a></li>	 	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/v1_(deprecated)/automatic_login.html">Automatic Login</a></li>	 	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/v1_(deprecated)/event_notification_url.html">Event Notification URL</a></li>	 	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/v1_(deprecated)/invalid_emails.html">Invalid Emails</a></li>	 	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/v1_(deprecated)/subuser_bounces.html">Subuser Bounces</a></li>	 	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/v1_(deprecated)/subuser_spam_reports.html">Subuser Spam Reports</a></li>	 	 	 <li class=><a href="/API_Reference/Customer_Subuser_API/v1_(deprecated)/subuser_unsubscribes.html">Subuser Unsubscribes</a></li>	 	 	  </ul></li>	 	  </ul></li>	 	<li id="node-35d6d9657bc8af50df1778efb28ab10b" class="parent collapsibleListClosed"><div class="subtree-name">Marketing Emails API</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/API_Reference/Marketing_Emails_API/index.html">Marketing Email API Overview</a></li>	 	 <li class=><a href="/API_Reference/Marketing_Emails_API/categories.html">Categories</a></li>	 	 <li class=><a href="/API_Reference/Marketing_Emails_API/emails.html">Emails</a></li>	 	 <li class=><a href="/API_Reference/Marketing_Emails_API/lists.html">Lists</a></li>	 	 <li class=><a href="/API_Reference/Marketing_Emails_API/newsletters.html">Marketing Emails</a></li>	 	 <li class=><a href="/API_Reference/Marketing_Emails_API/recipients.html">Recipients</a></li>	 	 <li class=><a href="/API_Reference/Marketing_Emails_API/schedule.html">Schedule</a></li>	 	 <li class=><a href="/API_Reference/Marketing_Emails_API/sender_address.html">Sender Address</a></li>	 	 <li class=><a href="/API_Reference/Marketing_Emails_API/variations.html">Variations (A/B Testing)</a></li>	 	  </ul></li>	 	<li id="node-d6b4c297fb0109dc6fe1a58e49d16b9a" class="parent collapsibleListClosed"><div class="subtree-name">Reseller API</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/API_Reference/Reseller_API/index.html">Reseller API Overview</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/account_overview.html">Account Overview</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/apps.html">Apps</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/authenticate_a_customer.html">Authenticate a Customer</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/authenticate_a_customer_subuser.html">Authenticate a Customer Subuser</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/automatic_login.html">Automatic Login</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/billing_retrieving_as_you_go_usage.html">Retrieving As-You-Go Usage</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/billing_retrieving_end_users_invoices_usage.html">Retrieving Invoice Usage</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_account_limits.html">Customer Account Limits</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_bounces.html">Customer Bounces</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_invalid_emails.html">Customer Invalid Emails</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_management.html">Customer Management</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_spam_reports.html">Customer Spam Reports</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_statistics.html">Customer Statistics</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_account_limits.html">Customer Subuser Account Limits</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_apps.html">Customer Subuser Apps</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_automatic_login.html">Customer Subuser Automatic Login</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_bounces.html">Customer Subuser Bounces</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_event_notification_url.html">Customer Subuser Event Notification URL</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_invalid_emails.html">Customer Subuser Invalid Emails</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_monitor_outgoing_email.html">Customer Subuser Monitor Outgoing Email</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_parse_settings.html">Customer Subuser Parse Settings</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_spam_reports.html">Customer Subuser Spam Reports</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_statistics.html">Customer Subuser Statistics</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_timezone.html">Customer Subuser Timezone</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_subuser_unsubscribes.html">Customer Subuser Unsubscribes</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_timezone.html">Customer Timezone</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/customer_unsubscribes.html">Customer Unsubscribes</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/event_notification_url.html">Event Notification URL</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/invoice_retrieval.html">Invoice Retrieval</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/ip_management.html">IP Management</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/monitor_records.html">Monitor Records</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/multiple_credentials.html">Multiple Credentials</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/parse_settings.html">Parse Settings</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/pending_account_changes.html">Pending Account Changes</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/view_available_packages.html">View Available Packages</a></li>	 	 <li class=><a href="/API_Reference/Reseller_API/whitelabel.html">Whitelabel</a></li>	 	 	<li id="node-8c7cddda650a3d8299f565e034db8a9c" class="parent collapsibleListClosed"><div class="subtree-name">v1 (deprecated)</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/index.html">Reseller API v1 (deprecated) Index</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/account_overview.html">Account Overview</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/apps.html">Apps</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/authenticate_a_customer.html">Authenticate a Customer</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/authenticate_a_customer_subuser.html">Authenticate a Customer Subuser</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/automatic_login.html">Automatic Login</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/billing.html">Billing</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/billing_retrieving_as_you_go_usage.html">Retrieving As-You-Go Usage</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/billing_retrieving_end_users_invoices_usage.html">Retrieving End User Invoice</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_account_limits.html">Customer Account Limits</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_bounces.html">Customer Bounces</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_invalid_emails.html">Customer Invalid Emails</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_management.html">Customer Management</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_spam_reports.html">Customer Spam Reports</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_statistics.html">Customer Statistics</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_account_limits.html">Customer Subuser Account Limits</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_apps_filters.html">Customer Subuser Apps</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_automatic_login.html">Customer Subuser Automatic Login</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_bounces.html">Customer Subuser Bounces</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_event_notification_url.html">Customer Subuser Event Notification URL</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_invalid_emails.html">Customer Subuser Invalid Emails</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_monitor_outgoing_email.html">Customer Subuser Monitor Outgoing Email</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_parse_settings.html">Customer Subuser Parse Settings</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_spam_reports.html">Customer Subuser Spam Reports</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_statistics.html">Customer Subuser Statistics</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_subuser_unsubscribes.html">Customer Subuser Unsubscribes</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/customer_unsubscribes.html">Customer Unsubscribes</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/event_notification_url.html">Event Notification URL</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/invoice_retrieval.html">Invoice Retrieval</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/ip_management.html">IP Management</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/monitor_records.html">Monitor Records</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/parse_settings.html">Parse Settings</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/pending_account_changes.html">Pending Account Changes</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/view_available_packages.html">View Available Packages</a></li>	 	 	 <li class=><a href="/API_Reference/Reseller_API/v1_(deprecated)/whitelabel.html">Whitelabel</a></li>	 	 	  </ul></li>	 	  </ul></li>	  </ul></li>	<li id="node-2e85a09ef64e25ecd00fd36505c363bd" class="parent collapsibleListClosed"><div class="subtree-name">Integrate</div>	 <ul  class="nav nav-list">	 <li class=><a href="/Integrate/index.html">Integrate with SendGrid</a></li>	 <li class=><a href="/Integrate/libraries.html">API Libraries</a></li>	 	<li id="node-de77d58abe13de22cdbb8979bdcea918" class="parent collapsibleListClosed"><div class="subtree-name">Frameworks</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/Integrate/Frameworks/index.html">Frameworks Index</a></li>	 	 <li class=><a href="/Integrate/Frameworks/cakephp.html">CakePHP</a></li>	 	 <li class=><a href="/Integrate/Frameworks/codeigniter.html">CodeIgniter</a></li>	 	 <li class=><a href="/Integrate/Frameworks/django.html">Django</a></li>	 	 <li class=><a href="/Integrate/Frameworks/laravel.html">Laravel</a></li>	 	 <li class=><a href="/Integrate/Frameworks/rubyonrails.html">Ruby on Rails</a></li>	 	 <li class=><a href="/Integrate/Frameworks/symfony.html">Symfony</a></li>	 	 <li class=><a href="/Integrate/Frameworks/zend.html">Zend</a></li>	 	  </ul></li>	 	<li id="node-0a3c8f34802602dfbeabd366ddc3bf82" class="parent collapsibleListClosed"><div class="subtree-name">Mail Clients</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/Integrate/Mail_Clients/index.html">Mail Clients Index</a></li>	 	 <li class=><a href="/Integrate/Mail_Clients/applemail.html">Apple Mail</a></li>	 	 <li class=><a href="/Integrate/Mail_Clients/outlook.html">Outlook 2007</a></li>	 	 <li class=><a href="/Integrate/Mail_Clients/thunderbird.html">Thunderbird</a></li>	 	  </ul></li>	 	<li id="node-244f5d72d1686b3225ac7504e7ff4345" class="parent collapsibleListClosed"><div class="subtree-name">Mail Servers</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/Integrate/Mail_Servers/index.html">Mail Servers Index</a></li>	 	 <li class=><a href="/Integrate/Mail_Servers/exchange_2010.html">Exchange 2010</a></li>	 	 <li class=><a href="/Integrate/Mail_Servers/exim.html">Exim</a></li>	 	 <li class=><a href="/Integrate/Mail_Servers/iis75.html">Microsoft IIS 7.5</a></li>	 	 <li class=><a href="/Integrate/Mail_Servers/postfix.html">Postfix</a></li>	 	 <li class=><a href="/Integrate/Mail_Servers/qmail.html">Qmail</a></li>	 	 <li class=><a href="/Integrate/Mail_Servers/sendmail.html">Sendmail</a></li>	 	 <li class=><a href="/Integrate/Mail_Servers/ssmtp.html">ssmtp</a></li>	 	  </ul></li>	 	<li id="node-97d48d4e204463bbbb01b3af1dc17786" class="parent collapsibleListClosed"><div class="subtree-name">Open Source Apps</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/Integrate/Open_Source_Apps/index.html">Open Source Apps Index</a></li>	 	 <li class=><a href="/Integrate/Open_Source_Apps/drupal.html">Drupal</a></li>	 	 <li class=><a href="/Integrate/Open_Source_Apps/joomla.html">Joomla</a></li>	 	 <li class=><a href="/Integrate/Open_Source_Apps/magento.html">Magento</a></li>	 	 <li class=><a href="/Integrate/Open_Source_Apps/phpbb.html">phpBB</a></li>	 	 <li class=><a href="/Integrate/Open_Source_Apps/wordpress.html">WordPress</a></li>	 	  </ul></li>	 	<li id="node-aca6c5f6d79e9d8c4a3aa0ea9242eed6" class="parent collapsibleListClosed"><div class="subtree-name">Other</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/Integrate/Other/index.html">Other Integrations Index</a></li>	 	 <li class=><a href="/Integrate/Other/interspire.html">Interspire Email Marketer</a></li>	 	  </ul></li>	 	<li id="node-bec159c678f3cc53b17739df235bee56" class="parent collapsibleListClosed"><div class="subtree-name">Partners</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/Integrate/Partners/index.html">Partner Integrations Index</a></li>	 	 <li class=><a href="/Integrate/Partners/EngineYard.html">Deploying a SendGrid App on Engine Yard</a></li>	 	 <li class=><a href="/Integrate/Partners/WindowsAzure.html">Building an iOS App on Windows Azure</a></li>	 	  </ul></li>	  </ul></li>	<li id="node-9df4a6fe141d1a3cd06af53e7391e7d5" class="parent collapsibleListClosed"><div class="subtree-name">Code Examples</div>	 <ul  class="nav nav-list">	 <li class=><a href="/Code_Examples/index.html">Code Examples Index</a></li>	 <li class=><a href="/Code_Examples/csharp.html">C#</a></li>	 <li class=><a href="/Code_Examples/go.html">Go</a></li>	 <li class=><a href="/Code_Examples/ios.html">iOS (Objective-C)</a></li>	 <li class=><a href="/Code_Examples/java.html">Java</a></li>	 <li class=><a href="/Code_Examples/nodejs.html">Node.js</a></li>	 <li class=><a href="/Code_Examples/perl.html">Perl</a></li>	 <li class=><a href="/Code_Examples/php.html">PHP</a></li>	 <li class=><a href="/Code_Examples/python.html">Python</a></li>	 <li class=><a href="/Code_Examples/ruby.html">Ruby</a></li>	 	<li id="node-14e772cadab40796afb5e6f78f03bd30" class="parent collapsibleListClosed"><div class="subtree-name">Webhook Examples</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/Code_Examples/Webhook_Examples/index.html">Webhook Examples Index</a></li>	 	 <li class=><a href="/Code_Examples/Webhook_Examples/csharp.html">C#</a></li>	 	 <li class=><a href="/Code_Examples/Webhook_Examples/go.html">Go</a></li>	 	 <li class=><a href="/Code_Examples/Webhook_Examples/nodejs.html">Node.js</a></li>	 	 <li class=><a href="/Code_Examples/Webhook_Examples/php.html">PHP</a></li>	 	 <li class=><a href="/Code_Examples/Webhook_Examples/python.html">Python</a></li>	 	  </ul></li>	 	<li id="node-3171c6157318c42c549e6010cbb65b36" class="parent collapsibleListClosed"><div class="subtree-name">SMTP API Header Examples</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/Code_Examples/SMTP_API_Header_Examples/index.html">SMTP API Examples Index</a></li>	 	 <li class=><a href="/Code_Examples/SMTP_API_Header_Examples/go.html">Go</a></li>	 	 <li class=><a href="/Code_Examples/SMTP_API_Header_Examples/nodejs.html">Node.js</a></li>	 	 <li class=><a href="/Code_Examples/SMTP_API_Header_Examples/perl.html">Perl</a></li>	 	 <li class=><a href="/Code_Examples/SMTP_API_Header_Examples/php.html">PHP</a></li>	 	 <li class=><a href="/Code_Examples/SMTP_API_Header_Examples/python.html">Python</a></li>	 	 <li class=><a href="/Code_Examples/SMTP_API_Header_Examples/ruby.html">Ruby</a></li>	 	  </ul></li>	  </ul></li>	<li id="node-f629b1c319b1a857a6964d1f1572e154" class="parent collapsibleListClosed"><div class="subtree-name">User Guide</div>	 <ul  class="nav nav-list">	 <li class=><a href="/User_Guide/index.html">SendGrid Overview</a></li>	 <li class=><a href="/User_Guide/smtp_ports.html">SMTP Ports</a></li>	 <li class=><a href="/User_Guide/multiple_credentials.html">Multiple User Credentials</a></li>	 <li class=><a href="/User_Guide/attachments.html">Sending Attachments</a></li>	 <li class=><a href="/User_Guide/whitelabel_wizard.html">Whitelabel Wizard</a></li>	 <li class=><a href="/User_Guide/managing_unsubscribes.html">Managing Unsubscribes</a></li>	 <li class=><a href="/User_Guide/template_engine_setup.html">Template Engine Setup Guide</a></li>	 <li class=><a href="/User_Guide/warming_up.html">Warming Up an IP Address</a></li>	 <li class=><a href="/User_Guide/billing.html">Billing and Account Changes</a></li>	 <li class=><a href="/User_Guide/peer_invitations.html">Peer Initiated Invitation Guide</a></li>	 <li class=><a href="/User_Guide/reconfirmation.html">Reconfirmation Email Campaigns</a></li>	 <li class=><a href="/User_Guide/sending_practices.html">Sending Practices and Limitations</a></li>	 <li class=><a href="/User_Guide/throttling.html">What is Throttling?</a></li>	  </ul></li>	<li id="node-9deb1429a12e2c906e3a500f7ad26e8b" class="parent collapsibleListClosed"><div class="subtree-name">Marketing Emails</div>	 <ul  class="nav nav-list">	 <li class=><a href="/Marketing_Emails/index.html">SendGrid's Marketing Email Tool</a></li>	 <li class=><a href="/Marketing_Emails/create_manage.html">Create and Manage Marketing Emails</a></li>	 <li class=><a href="/Marketing_Emails/dashboard.html">Dashboard</a></li>	 <li class=><a href="/Marketing_Emails/recipients.html">Create and Manage Recipients</a></li>	 <li class=><a href="/Marketing_Emails/sender_address.html">Create and Manage Sender Addresses</a></li>	 <li class=><a href="/Marketing_Emails/tags.html">Marketing Email Tags</a></li>	  </ul></li>	<li id="node-bf4eb86d3fca1b8aa2493203bc59c06f" class="parent collapsibleListClosed"><div class="subtree-name">Delivery Metrics</div>	 <ul  class="nav nav-list">	 <li class=><a href="/Delivery_Metrics/index.html">Delivery Metrics Index</a></li>	 <li class=><a href="/Delivery_Metrics/alerts.html">Alerts</a></li>	 <li class=><a href="/Delivery_Metrics/categories.html">Categories</a></li>	 <li class=><a href="/Delivery_Metrics/email_activity.html">Email Activity</a></li>	 <li class=><a href="/Delivery_Metrics/email_error_messages.html">Email Error Messages</a></li>	 <li class=><a href="/Delivery_Metrics/email_reports.html">Email Reports</a></li>	  </ul></li>	<li id="node-38b334e8c44bd2248734bd286ac5216a" class="parent collapsibleListClosed"><div class="subtree-name">Apps</div>	 <ul  class="nav nav-list">	 <li class=><a href="/Apps/index.html">Apps Index</a></li>	 <li class=><a href="/Apps/address_whitelisting.html">Address Whitelisting</a></li>	 <li class=><a href="/Apps/bcc.html">BCC</a></li>	 <li class=><a href="/Apps/bypass_list_management.html">Bypass List Management</a></li>	 <li class=><a href="/Apps/click_tracking.html">Click Tracking</a></li>	 <li class=><a href="/Apps/dkim.html">DKIM</a></li>	 <li class=><a href="/Apps/domain_keys.html">Domain Keys</a></li>	 <li class=><a href="/Apps/email_templates.html">Legacy Email Templates</a></li>	 <li class=><a href="/Apps/event_notification.html">Event Notification</a></li>	 <li class=><a href="/Apps/footer.html">Footer</a></li>	 <li class=><a href="/Apps/forward_spam.html">Forward Spam</a></li>	 <li class=><a href="/Apps/google_analytics.html">Google Analytics</a></li>	 <li class=><a href="/Apps/gravatar.html">Gravatar</a></li>	 <li class=><a href="/Apps/new_relic.html">SendGrid for New Relic</a></li>	 <li class=><a href="/Apps/open_tracking.html">Open Tracking</a></li>	 <li class=><a href="/Apps/sendwithus.html">Sendwithus</a></li>	 <li class=><a href="/Apps/spam_checker.html">Spam Checker</a></li>	 <li class=><a href="/Apps/subscription_tracking.html">Subscription Tracking</a></li>	 <li class=><a href="/Apps/template_engine.html">Template Engine</a></li>	  </ul></li>	<li id="node-52cc0ffc19dc4d4a0a29c77edeb76c79" class="parent collapsibleListClosed"><div class="subtree-name"><span class="icon-vidgrid"></span>VidGrid</div>	 <ul  class="nav nav-list">	 <li class=><a href="/VidGrid/index.html">VidGrid Overview</a></li>	 	<li id="node-f962fb28b7c507019ec0b9e388b1e727" class="parent collapsibleListClosed"><div class="subtree-name">Email Activity</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/VidGrid/Email_Activity/activity.html">Email Activity</a></li>	 	  </ul></li>	 	<li id="node-67591f81c980a679776292a0b6a1adb9" class="parent collapsibleListClosed"><div class="subtree-name">Event Notification</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/VidGrid/Event_Notification/configure.html">Event Notification App</a></li>	 	 <li class=><a href="/VidGrid/Event_Notification/eventkit.html">EventKit App</a></li>	 	  </ul></li>	 	<li id="node-e530d579fe874c0e418241fe57757bc6" class="parent collapsibleListClosed"><div class="subtree-name">Marketing Emails</div>	 	 <ul  class="nav nav-list">	 	 	<li id="node-23f6c350a0861dc148c0335bbb714bf1" class="parent collapsibleListClosed"><div class="subtree-name">Setup</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Setup/overview.html">Marketing Email Setup</a></li>	 	 	  </ul></li>	 	 	<li id="node-7ddcf820f125cba1fe443b7bfb28ea9b" class="parent collapsibleListClosed"><div class="subtree-name">Recipients</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Recipients/exporting.html">Exporting Your Recipient List</a></li>	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Recipients/recipient_list.html">Recipient Lists</a></li>	 	 	  </ul></li>	 	 	<li id="node-464d416f22fbb8266ab7b54b57214828" class="parent collapsibleListClosed"><div class="subtree-name">Design</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Design/newsletter_basics.html">Marketing Email Basics</a></li>	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Design/drag_and_drop.html">Drag and Drop</a></li>	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Design/subscription_widget.html">Subscription Widget</a></li>	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Design/weblink.html">Unsubscribe Link and Weblink</a></li>	 	 	  </ul></li>	 	 	<li id="node-be758de3fffa43a91c64b7980ac90030" class="parent collapsibleListClosed"><div class="subtree-name">Review and Schedule</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Review_and_Schedule/split_testing.html">A/B Split Testing</a></li>	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Review_and_Schedule/scheduling.html">Scheduling Your Marketing Email</a></li>	 	 	  </ul></li>	 	 	<li id="node-19347de1713b1f062f1147ff7bfaa25e" class="parent collapsibleListClosed"><div class="subtree-name">Analytics</div>	 	 	 <ul  class="nav nav-list">	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Analytics/marketing_statistics.html">Understanding Marketing Statistics</a></li>	 	 	 <li class=><a href="/VidGrid/Marketing_Emails/Analytics/unsubscribe_management.html">Managing Marketing Email Unsubscribe List</a></li>	 	 	  </ul></li>	 	  </ul></li>	 	<li id="node-e003c87d6a17792328f0dac62be1dc3c" class="parent collapsibleListClosed"><div class="subtree-name">Subuser</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/VidGrid/Subuser/create_subuser.html">Creating a Subuser</a></li>	 	 <li class=><a href="/VidGrid/Subuser/create_subuser_whitelabel.html">Creating a Subuser with its own Whitelabel</a></li>	 	  </ul></li>	 	<li id="node-9f5fdbeb6a998d31522669df05f57541" class="parent collapsibleListClosed"><div class="subtree-name">Template Engine</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/VidGrid/Template_Engine/template_engine.html">Using the Template Engine</a></li>	 	  </ul></li>	 	<li id="node-ae35cf74298a06d7f01bb5a4a1c96675" class="parent collapsibleListClosed"><div class="subtree-name">Whitelabel</div>	 	 <ul  class="nav nav-list">	 	 <li class=><a href="/VidGrid/Whitelabel/whitelabel.html">Whitelabel Wizard</a></li>	 	  </ul></li>	  </ul></li> </ul></nav>
+    </div>
+</div>
+
+
+
+
+<div class="col-md-9 col-sm-9 content-wrapper">
+  
+    <section><div class="breadcrumb-pane clearfix"><ul class="breadcrumb"><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/index.html" itemprop="url"><span itemprop="title">Documentation</span></a></li><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/API_Reference/index.html" itemprop="url"><span itemprop="title">API Reference</span></a></li><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/API_Reference/Web_API/index.html" itemprop="url"><span itemprop="title">Web API</span></a></li><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">Filter Settings</span><meta itemprop="url" content="https://nquinlan.github.io/docs/API_Reference/Web_API/filter_settings.html" /></li></ul><a class="edit-link" href="https://github.com/sendgrid/docs/blob/develop/source/API_Reference/Web_API/filter_settings.md"><span class="icon-edit"></span> Edit</a></div></section>
+  
+<article role="article" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/WebPageElement">
+
+    
+  <header class="page-header">
+    <h1 class="entry-title" itemprop="name">Filter Settings</h1>
+  </header>
+  
+
+  <p>For a more detailed description of each of the Apps below, please visit the <a href="/Apps/">Apps</a> page.</p>
+
+<p>All calls to change filter settings are made to the <a href="/API_Reference/Web_API/filter_commands.html#-Setup-App">filter.setup endpoint.</a></p>
+
+<h2 class="anchor-wrap"><a name="-Address-Whitelist" class="anchor" href="#-Address-Whitelist"><span class="anchor-icon"><i class="icon-link"></i></span></a>Address Whitelist</h2>
+
+
+<p><em>API App Name - <code>addresswhitelist</code></em></p>
+
+<div class="callout callout-info">
+<p>When using this call, you must define all emails &amp; domains here. Using this call will overwrite any current settings for this filter. This would also be how you remove an entry, by excluding if from the call. </p>
+</div>
+
+
+<table id="parameters-addresswhitelist" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+     
+  
+  <tr>
+  <td>name</td>
+  <td>yes</td>
+  <td>addresswhitelist</td>
+  <td>The name of the app for which to apply settings.</td>
+</tr>
+  
+  <tr>
+  <td>list</td>
+  <td>no</td>
+  <td>A list of email addresses or domains.</td>
+  <td>list[]=support@example.com&amp;list[]=sales@example.com</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-addresswhitelist">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_8cf99a1a35e8784aeb903bd469984a47" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_8cf99a1a35e8784aeb903bd469984a47">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_8cf99a1a35e8784aeb903bd469984a47">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_8cf99a1a35e8784aeb903bd469984a47">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>6156130996</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-addresswhitelist">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="addresswhitelist-json" href="#addresswhitelist-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="addresswhitelist-xml" href="#addresswhitelist-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="addresswhitelist-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">addresswhitelist</span>&<span class="data-key"><wbr>list[]</span>=<span class="data-value">support@example.com</span>&<span class="data-key"><wbr>list[]</span>=<span class="data-value">sales@example.com</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="addresswhitelist-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">addresswhitelist</span>&<span class="data-key"><wbr>list[]</span>=<span class="data-value">support@example.com</span>&<span class="data-key"><wbr>list[]</span>=<span class="data-value">sales@example.com</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-BCC-Blind-Carbon-Copy" class="anchor" href="#-BCC-Blind-Carbon-Copy"><span class="anchor-icon"><i class="icon-link"></i></span></a>BCC &#8220;Blind Carbon Copy&#8221;</h2>
+
+
+<p><em>API App Name - <code>bcc</code></em></p>
+
+<table id="parameters-bcc" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+     
+  
+  <tr>
+  <td>name</td>
+  <td>yes</td>
+  <td>bcc</td>
+  <td>The name of the app for which to apply settings.</td>
+</tr>
+  
+  <tr>
+  <td>bcc</td>
+  <td>yes</td>
+  <td>An email address to be the BCC recipient.</td>
+  <td>email@example.com</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-bcc">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_8037fa74fd11cbf28c5d11a6aedc9e15" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_8037fa74fd11cbf28c5d11a6aedc9e15">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_8037fa74fd11cbf28c5d11a6aedc9e15">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_8037fa74fd11cbf28c5d11a6aedc9e15">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>6441492099</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-bcc">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="bcc-json" href="#bcc-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="bcc-xml" href="#bcc-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="bcc-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">bcc</span>&<span class="data-key"><wbr>bcc</span>=<span class="data-value">email@example.com</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="bcc-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">bcc</span>&<span class="data-key"><wbr>bcc</span>=<span class="data-value">email@example.com</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Click-Tracking" class="anchor" href="#-Click-Tracking"><span class="anchor-icon"><i class="icon-link"></i></span></a>Click Tracking</h2>
+
+
+<p><em>API App Name - <code>clicktrack</code></em></p>
+
+<table id="parameters-clicktrack" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+     
+  
+  <tr>
+  <td>name</td>
+  <td>yes</td>
+  <td>clicktrack</td>
+  <td>The name of the app for which to apply settings.</td>
+</tr>
+  
+  <tr>
+  <td>enable_text</td>
+  <td>yes</td>
+  <td>Enable click tracking in plain text emails.</td>
+  <td>0 or 1</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-clicktrack">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_33e3ad526a1896a2bdd3566740086e3d" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_33e3ad526a1896a2bdd3566740086e3d">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_33e3ad526a1896a2bdd3566740086e3d">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_33e3ad526a1896a2bdd3566740086e3d">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>7412869707</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-clicktrack">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="clicktrack-json" href="#clicktrack-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="clicktrack-xml" href="#clicktrack-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="clicktrack-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">clicktrack</span>&<span class="data-key"><wbr>enable_text</span>=<span class="data-value">1</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="clicktrack-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">clicktrack</span>&<span class="data-key"><wbr>enable_text</span>=<span class="data-value">1</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-DKIM" class="anchor" href="#-DKIM"><span class="anchor-icon"><i class="icon-link"></i></span></a>DKIM</h2>
+
+
+<p><em>API App Name - <code>dkim</code></em></p>
+
+<table id="parameters-dkim" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+     
+  
+  <tr>
+  <td>name</td>
+  <td>yes</td>
+  <td>dkim</td>
+  <td>The name of the app for which to apply settings.</td>
+</tr>
+  
+  <tr>
+  <td>domain</td>
+  <td>yes</td>
+  <td>The domain to sign messages as.</td>
+  <td>example.com</td>
+</tr>
+  
+  <tr>
+  <td>use_from</td>
+  <td>no</td>
+  <td>If enabled, the domain in the From: header of the email will be used to sign your DKIM.</td>
+  <td>0 or 1</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-dkim">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_50a33d7ca0cfa95788c433601b9801e5" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_50a33d7ca0cfa95788c433601b9801e5">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_50a33d7ca0cfa95788c433601b9801e5">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_50a33d7ca0cfa95788c433601b9801e5">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>8323428613</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-dkim">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="dkim-json" href="#dkim-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="dkim-xml" href="#dkim-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="dkim-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">dkim</span>&<span class="data-key"><wbr>domain</span>=<span class="data-value">example.com</span>&<span class="data-key"><wbr>use_from</span>=<span class="data-value">1</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="dkim-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">dkim</span>&<span class="data-key"><wbr>domain</span>=<span class="data-value">example.com</span>&<span class="data-key"><wbr>use_from</span>=<span class="data-value">1</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Domain-Keys" class="anchor" href="#-Domain-Keys"><span class="anchor-icon"><i class="icon-link"></i></span></a>Domain Keys</h2>
+
+
+<p><em>API App Name - <code>domainkeys</code></em></p>
+
+<table id="parameters-domainkeys" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+     
+  
+  <tr>
+  <td>name</td>
+  <td>yes</td>
+  <td>domainkeys</td>
+  <td>The name of the app for which to apply settings.</td>
+</tr>
+  
+  <tr>
+  <td>domain</td>
+  <td>yes</td>
+  <td>The domain to sign messages as.</td>
+  <td>example.com</td>
+</tr>
+  
+  <tr>
+  <td>sender</td>
+  <td>no</td>
+  <td>1 to insert a sender header if the domain specified does not match the from address; 0 to never insert a Sender header.</td>
+  <td>0 or 1</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-domainkeys">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_2160747bf866fe26b0f8bf9171f4f01d" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_2160747bf866fe26b0f8bf9171f4f01d">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_2160747bf866fe26b0f8bf9171f4f01d">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_2160747bf866fe26b0f8bf9171f4f01d">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2760177608</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-domainkeys">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="domainkeys-json" href="#domainkeys-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="domainkeys-xml" href="#domainkeys-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="domainkeys-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">domainkeys</span>&<span class="data-key"><wbr>sender</span>=<span class="data-value">1</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="domainkeys-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">domainkeys</span>&<span class="data-key"><wbr>sender</span>=<span class="data-value">1</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Email-Templates" class="anchor" href="#-Email-Templates"><span class="anchor-icon"><i class="icon-link"></i></span></a>Legacy Email Templates</h2>
+
+
+<p><em>API App Name - <code>template</code></em></p>
+
+<div class="callout callout-warning">
+<p>This app is our original Email Template app, today we have a more full featured <a href="/API_Reference/Web_API_v3/Template_Engine/index.html">Template Engine</a>, which supports multiple templates, versioning and more. Its settings, however, are controlled using a <a href="/API_Reference/Web_API_v3/Template_Engine/index.html">separate API</a>. </p>
+</div>
+
+
+<table id="parameters-template" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+     
+  
+  <tr>
+  <td>name</td>
+  <td>yes</td>
+  <td>template</td>
+  <td>The name of the app for which to apply settings.</td>
+</tr>
+  
+  <tr>
+  <td>text_html</td>
+  <td>yes</td>
+  <td>A string that holds the template html body.</td>
+  <td>&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body bgcolor=pink&gt;&lt;div style=width:200px bgcolor=#FFF&gt;&lt;% body %&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-template">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_cb01aa9f7a08819d61ef8923916b6742" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_cb01aa9f7a08819d61ef8923916b6742">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_cb01aa9f7a08819d61ef8923916b6742">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_cb01aa9f7a08819d61ef8923916b6742">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>8076809657</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-template">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="template-json" href="#template-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="template-xml" href="#template-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="template-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">template</span>&<span class="data-key"><wbr>text_html</span>=<span class="data-value">%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%20bgcolor%3D%27pink%27%3E%3Cdiv%20style%3D%27width%3A200px%27%20bgcolor%3D%27%23FFF%27%3E%3C%25%20body%20%25%3E%3C%2Fdiv%3E%3C%2Fbody%3E%3C%2Fhtml%3E</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="template-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">template</span>&<span class="data-key"><wbr>text_html</span>=<span class="data-value">%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%20bgcolor%3D%27pink%27%3E%3Cdiv%20style%3D%27width%3A200px%27%20bgcolor%3D%27%23FFF%27%3E%3C%25%20body%20%25%3E%3C%2Fdiv%3E%3C%2Fbody%3E%3C%2Fhtml%3E</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Event-Notification" class="anchor" href="#-Event-Notification"><span class="anchor-icon"><i class="icon-link"></i></span></a>Event Notification</h2>
+
+
+<p><em>API App Name - <code>eventnotify</code></em></p>
+
+<div class="callout callout-info">
+<p>All fields except version are required for each call. </p>
+</div>
+
+
+
+
+<table id="parameters-addresswhitelist" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+    
+ <tr>
+  <td>name</td>
+  <td>Yes</td>
+  <td>eventnotify</td>
+  <td>The app for which to set or retrieve settings.</td>
+</tr>
+
+ <tr>
+  <td>processed</td>
+  <td>Yes</td>
+  <td>Notify when email is processed</td>
+  <td>0</td>
+</tr>
+
+ <tr>
+  <td>dropped</td>
+  <td>Yes</td>
+  <td>Notify when email is dropped</td>
+  <td>1</td>
+</tr>
+
+ <tr>
+  <td>deferred</td>
+  <td>Yes</td>
+  <td>Notify when email is deferred</td>
+  <td>1</td>
+</tr>
+
+ <tr>
+  <td>delivered</td>
+  <td>Yes</td>
+  <td>Notify when email is delivered</td>
+  <td>1</td>
+</tr>
+
+ <tr>
+  <td>bounce</td>
+  <td>Yes</td>
+  <td>Notify when email is bounced</td>
+  <td>1</td>
+</tr>
+
+ <tr>
+  <td>click</td>
+  <td>Yes</td>
+  <td>Notify when email is clicked</td>
+  <td>1</td>
+</tr>
+
+ <tr>
+  <td>open</td>
+  <td>Yes</td>
+  <td>Notify when email is opened</td>
+  <td>1</td>
+</tr>
+
+ <tr>
+  <td>unsubscribe</td>
+  <td>Yes</td>
+  <td>Notify when email is unsubscribed</td>
+  <td>1</td>
+</tr>
+
+ <tr>
+  <td>spamreport</td>
+  <td>Yes</td>
+  <td>Notify when email is marked as spam</td>
+  <td>1</td>
+</tr>
+
+ <tr>
+  <td>url</td>
+  <td>Yes</td>
+  <td>The post notification url to post these event messages to</td>
+  <td>https://notificationurl.example.com/event</td>
+</tr>
+
+ <tr>
+  <td>version</td>
+  <td>No</td>
+  <td>The version of the Event API you wish to use. (1-3)</td>
+  <td>3</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-eventnotify">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_f36e60a0f5ea842e3fbc9a65246a34b3" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f36e60a0f5ea842e3fbc9a65246a34b3">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f36e60a0f5ea842e3fbc9a65246a34b3">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f36e60a0f5ea842e3fbc9a65246a34b3">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>4182993474</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-eventnotify">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="eventnotify-json" href="#eventnotify-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="eventnotify-xml" href="#eventnotify-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="eventnotify-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">eventnotify</span>&<span class="data-key"><wbr>processed</span>=<span class="data-value">0</span>&<span class="data-key"><wbr>dropped</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>deferred</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>delivered</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>bounce</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>click</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>unsubscribe</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>spamreport</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>url</span>=<span class="data-value">https://notificationurl.example.com/event</span>&<span class="data-key"><wbr>version</span>=<span class="data-value">3</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="eventnotify-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">eventnotify</span>&<span class="data-key"><wbr>processed</span>=<span class="data-value">0</span>&<span class="data-key"><wbr>dropped</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>deferred</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>delivered</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>bounce</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>click</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>unsubscribe</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>spamreport</span>=<span class="data-value">1</span>&<span class="data-key"><wbr>url</span>=<span class="data-value">https://notificationurl.example.com/event</span>&<span class="data-key"><wbr>version</span>=<span class="data-value">3</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Footer" class="anchor" href="#-Footer"><span class="anchor-icon"><i class="icon-link"></i></span></a>Footer</h2>
+
+
+<p><em>API App Name - <code>footer</code></em></p>
+
+<table id="parameters-bcc" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+    
+ <tr>
+  <td>name</td>
+  <td>Yes</td>
+  <td>footer</td>
+  <td>The app for which to set or retrieve settings.</td>
+</tr>
+
+ <tr>
+  <td>text/html</td>
+  <td>No</td>
+  <td>String that holds the html body</td>
+  <td>&lt;html&gt;Content&lt;/html&gt;</td>
+</tr>
+
+ <tr>
+  <td>text/plain</td>
+  <td>No</td>
+  <td>String that holds the text body</td>
+  <td>Content</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-footer">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_0abec93837595c9ac3cc7faf22c77ee7" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_0abec93837595c9ac3cc7faf22c77ee7">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_0abec93837595c9ac3cc7faf22c77ee7">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_0abec93837595c9ac3cc7faf22c77ee7">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2605843697</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-footer">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="footer-json" href="#footer-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="footer-xml" href="#footer-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="footer-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">footer</span>&<span class="data-key"><wbr>text/html</span>=<span class="data-value">%3Cp%3EThanks!%3Cbr%2F%3ESendGrid%3C%2Fp%3E</span>&<span class="data-key"><wbr>text/plain</span>=<span class="data-value">Thanks!%0ASendGrid</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="footer-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">footer</span>&<span class="data-key"><wbr>text/html</span>=<span class="data-value">%3Cp%3EThanks!%3Cbr%2F%3ESendGrid%3C%2Fp%3E</span>&<span class="data-key"><wbr>text/plain</span>=<span class="data-value">Thanks!%0ASendGrid</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Google-Analytics" class="anchor" href="#-Google-Analytics"><span class="anchor-icon"><i class="icon-link"></i></span></a>Google Analytics</h2>
+
+
+<p><em>API App Name - <code>ganalytics</code></em></p>
+
+<table id="parameters-clicktrack" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+    
+ <tr>
+  <td>name</td>
+  <td>Yes</td>
+  <td>ganalytics</td>
+  <td>The app for which to set or retrieve settings.</td>
+</tr>
+
+ <tr>
+  <td>utm_source</td>
+  <td>No</td>
+  <td>Name of the referrer source</td>
+  <td>Transactional Email</td>
+</tr>
+
+ <tr>
+  <td>utm_medium</td>
+  <td>No</td>
+  <td>Name of the marketing medium</td>
+  <td>email</td>
+</tr>
+
+ <tr>
+  <td>utm_campaign</td>
+  <td>No</td>
+  <td>Name of the campaign</td>
+  <td>Redesigned Transaction</td>
+</tr>
+
+ <tr>
+  <td>utm_term</td>
+  <td>No</td>
+  <td>Identify paid keywords</td>
+  <td>Health</td>
+</tr>
+
+ <tr>
+  <td>utm_content</td>
+  <td>No</td>
+  <td>Use to differentiate ads</td>
+  <td>PageB</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-googleanalytics">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_5eb032608330b86c024bd298199b344c" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_5eb032608330b86c024bd298199b344c">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_5eb032608330b86c024bd298199b344c">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_5eb032608330b86c024bd298199b344c">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>6016695108</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-googleanalytics">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="googleanalytics-json" href="#googleanalytics-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="googleanalytics-xml" href="#googleanalytics-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="googleanalytics-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">ganalytics</span>&<span class="data-key"><wbr>utm_source</span>=<span class="data-value">Transactional</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="googleanalytics-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">ganalytics</span>&<span class="data-key"><wbr>utm_source</span>=<span class="data-value">Transactional</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Gravatar" class="anchor" href="#-Gravatar"><span class="anchor-icon"><i class="icon-link"></i></span></a>Gravatar</h2>
+
+
+<p><em>API App Name - <code>gravatar</code></em></p>
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Open-Tracking" class="anchor" href="#-Open-Tracking"><span class="anchor-icon"><i class="icon-link"></i></span></a>Open Tracking</h2>
+
+
+<p><em>API App Name - <code>opentrack</code></em></p>
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-SPAM-Filter-Checker" class="anchor" href="#-SPAM-Filter-Checker"><span class="anchor-icon"><i class="icon-link"></i></span></a>SPAM Filter Checker</h2>
+
+
+<p><em>API App Name - <code>spamcheck</code></em></p>
+
+<table id="parameters-dkim" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+    
+ <tr>
+  <td>name</td>
+  <td>Yes</td>
+  <td>spamcheck</td>
+  <td>The app for which to set or retrieve settings.</td>
+</tr>
+
+ <tr>
+  <td>maxscore</td>
+  <td>Yes</td>
+  <td>Emails with a spam score over this value will be considered spam and will not be delivered to the recipient. The default spam threshold is 5.0, but you can set this to any value you wish. We use SpamAssassin to process the spam checks for this filter, so you can base your maxscore setting on values typically used with SpamAssassin</td>
+  <td>1.2</td>
+</tr>
+
+ <tr>
+  <td>url</td>
+  <td>Yes</td>
+  <td>URL to post the email and a copy of the detailed SpamAssassin report describing why the email was designated as spam</td>
+  <td>https://www.example.com/spamcheck.php</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-spamcheck">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_88ac980836b25e2ffeb82a1b8c3e0a07" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_88ac980836b25e2ffeb82a1b8c3e0a07">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_88ac980836b25e2ffeb82a1b8c3e0a07">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_88ac980836b25e2ffeb82a1b8c3e0a07">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1040239947</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-spamcheck">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="spamcheck-json" href="#spamcheck-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="spamcheck-xml" href="#spamcheck-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="spamcheck-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">eventnotify</span>&<span class="data-key"><wbr>maxscore</span>=<span class="data-value">1.2</span>&<span class="data-key"><wbr>url</span>=<span class="data-value">https://www.example.com/spamcheck.php</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="spamcheck-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">eventnotify</span>&<span class="data-key"><wbr>maxscore</span>=<span class="data-value">1.2</span>&<span class="data-key"><wbr>url</span>=<span class="data-value">https://www.example.com/spamcheck.php</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Subscription-Tracking" class="anchor" href="#-Subscription-Tracking"><span class="anchor-icon"><i class="icon-link"></i></span></a>Subscription Tracking</h2>
+
+
+<p><em>API App Name - <code>subscriptiontrack</code></em></p>
+
+<table id="parameters-domainkeys" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+    
+ <tr>
+  <td>name</td>
+  <td>Yes</td>
+  <td>subscriptiontrack</td>
+  <td>The app for which to set or retrieve settings.</td>
+</tr>
+
+ <tr>
+  <td>text/html</td>
+  <td>No</td>
+  <td>String for the HTML e-mail body</td>
+  <td>If you would like to unsubscribe and stop receiving these emails &lt;% click here %&gt;</td>
+</tr>
+
+ <tr>
+  <td>text/plain</td>
+  <td>No</td>
+  <td>String for the plain text e-mail body</td>
+  <td>If you would like to unsubscribe and stop receiving these emails click here: &lt;% %&gt;.</td>
+</tr>
+
+ <tr>
+  <td>url</td>
+  <td>No</td>
+  <td>a URL the customer will be redirected to on clicking the subscription management link</td>
+  <td>http://www.example.com/UnsubscribeLandingPage</td>
+</tr>
+
+ <tr>
+  <td>landing</td>
+  <td>No</td>
+  <td>HTML content for a landing page that will be displayed by SendGrid</td>
+  <td>&lt;html&gt;Content&lt;/html&gt;</td>
+</tr>
+
+ <tr>
+  <td>replace</td>
+  <td>No</td>
+  <td>a tag that can be added to the content that will be replaced by SendGrid with the subscription management link</td>
+  <td>[unsubscribe_tag]</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-subscriptiontrack">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_82786a925523aaaff770c4840ef98300" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_82786a925523aaaff770c4840ef98300">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_82786a925523aaaff770c4840ef98300">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_82786a925523aaaff770c4840ef98300">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>3436530877</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-subscriptiontrack">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="subscriptiontrack-json" href="#subscriptiontrack-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="subscriptiontrack-xml" href="#subscriptiontrack-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="subscriptiontrack-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">subscriptiontrack</span>&<span class="data-key"><wbr>text/html</span>=<span class="data-value">%3Cp%3EIf%20you%20would%20like%20to%20unsubscribe%20and%20stop%20receiving%20these%20emails%20%3C%25%20click%20here%20%25%3E%3C%2Fp%3E</span>&<span class="data-key"><wbr>text/plain</span>=<span class="data-value">If%20you%20would%20like%20to%20unsubscribe%20and%20stop%20receiving%20these%20emails%20click%20here%3A%20%3C%25%20%25%3E.</span>&<span class="data-key"><wbr>url</span>=<span class="data-value">http://www.example.com/UnsubscribeLandingPage</span>&<span class="data-key"><wbr>replace</span>=<span class="data-value">%5Bunsubscribe_tag%5D</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="subscriptiontrack-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">subscriptiontrack</span>&<span class="data-key"><wbr>text/html</span>=<span class="data-value">%3Cp%3EIf%20you%20would%20like%20to%20unsubscribe%20and%20stop%20receiving%20these%20emails%20%3C%25%20click%20here%20%25%3E%3C%2Fp%3E</span>&<span class="data-key"><wbr>text/plain</span>=<span class="data-value">If%20you%20would%20like%20to%20unsubscribe%20and%20stop%20receiving%20these%20emails%20click%20here%3A%20%3C%25%20%25%3E.</span>&<span class="data-key"><wbr>url</span>=<span class="data-value">http://www.example.com/UnsubscribeLandingPage</span>&<span class="data-key"><wbr>replace</span>=<span class="data-value">%5Bunsubscribe_tag%5D</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f22a99a304c896365e996d97f2b1b8b2" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f22a99a304c896365e996d97f2b1b8b2">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f22a99a304c896365e996d97f2b1b8b2">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;result&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span><span class='line'><span class="nt">&lt;/result&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-SendGrid-for-New-Relic" class="anchor" href="#-SendGrid-for-New-Relic"><span class="anchor-icon"><i class="icon-link"></i></span></a>SendGrid for New Relic</h2>
+
+
+<p><em>API App Name - <code>newrelic</code></em></p>
+
+<table id="parameters-template" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+    
+ <tr>
+  <td>name</td>
+  <td>Yes</td>
+  <td>newrelic</td>
+  <td>The app for which to set or retrieve settings.</td>
+</tr>
+
+ <tr>
+  <td>license_key</td>
+  <td>YES</td>
+  <td>Can be found in New Relic Settings page</td>
+  <td></td>
+</tr>
+
+ <tr>
+  <td>enable_subusers</td>
+  <td>YES</td>
+  <td>false to disable, true to enable</td>
+  <td></td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-get">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://api.sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_d6cd259f05d0eb6dbb325747608b8296" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_d6cd259f05d0eb6dbb325747608b8296">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_d6cd259f05d0eb6dbb325747608b8296">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_d6cd259f05d0eb6dbb325747608b8296">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1763081532</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-get">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="get-json" href="#get-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="get-xml" href="#get-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="get-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://api.sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">newrelic</span>&<span class="data-key"><wbr>license_key</span>=<span class="data-value">1234567</span>&<span class="data-key"><wbr>enable_subusers</span>=<span class="data-value">true</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="get-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://api.sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">newrelic</span>&<span class="data-key"><wbr>license_key</span>=<span class="data-value">1234567</span>&<span class="data-key"><wbr>enable_subusers</span>=<span class="data-value">true</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f06fded3cd0137e156353ea4340828de" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f06fded3cd0137e156353ea4340828de">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f06fded3cd0137e156353ea4340828de">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f06fded3cd0137e156353ea4340828de">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+<hr />
+
+<h2 class="anchor-wrap"><a name="-Sendwithus" class="anchor" href="#-Sendwithus"><span class="anchor-icon"><i class="icon-link"></i></span></a>Sendwithus</h2>
+
+
+<p><em>API App Name - <code>sendwithus</code></em></p>
+
+<table id="parameters-eventnotify" class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+    
+ <tr>
+  <td>name</td>
+  <td>Yes</td>
+  <td>sendwithus</td>
+  <td>The app for which to set or retrieve settings.</td>
+</tr>
+
+ <tr>
+  <td>license_key</td>
+  <td>YES</td>
+  <td>Can be found in Sendwithus Settings page</td>
+  <td></td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+
+
+<div class="live-doc" id="livedoc-get">
+  <input type="hidden" class="method" value="POST"/>
+  <input type="hidden" class="url" value="https://api.sendgrid.com/api/filter.setup"/>
+  <form role="form" class="live-form">
+    <table class="table table-bordered table-striped live-params">
+      <tbody>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Requirements</th>
+          <th>Description</th>
+        </tr>
+      <tbody>
+    </table>
+    <div class="curl-call">
+      <div class="code-wrapper" id="wrapper_1c34368549e981f63f870ef1bc3fcec9" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_1c34368549e981f63f870ef1bc3fcec9">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_1c34368549e981f63f870ef1bc3fcec9">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_1c34368549e981f63f870ef1bc3fcec9">
+  
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>5936724045</span></code></pre></td></tr></table></div></figure></div>
+    </div>
+  </form>
+
+  <div class="live-call">
+    <div class="bar-indicator" style="display:none;"></div>          
+    <table class="table table-bordered request-block">
+    <tbody>
+      <tr>
+        <td class="method"></td>
+        <td>
+          <code class="call"></code>
+        </td>
+      </tr>
+      <tr class="request-data hidden">
+        <td>Data</td>
+        <td>
+          <code class="data"></code>
+        </td>
+      </tr>
+      <tr class="response-status hidden">
+        <td>Response Status</td>
+        <td>
+          <pre class="status"></pre>
+        </td>
+      </tr>
+      <tr class="response-headers hidden">
+        <td>Response Headers</td>
+        <td>
+          <pre class="headers"></pre>
+        </td>
+      </tr>
+      <tr class="response-body hidden">
+        <td>Response Body</td>
+        <td>
+          <pre class="body"></pre>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+      <button type="input" class="clear-request btn btn-warning">Clear</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="api-example" id="apiexample-get">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <a name="get-json" href="#get-json" data-toggle="tab">JSON</a>
+      </li>
+      <li>
+          <a name="get-xml" href="#get-xml" data-toggle="tab">XML</a>
+      </li>
+  </ul>
+
+  <div class="tab-content">
+  
+  <div class="tab-pane active" id="get-json">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://api.sendgrid.com/api/filter.setup.json</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">sendwithus</span>&<span class="data-key"><wbr>license_key</span>=<span class="data-value">1234567</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_e7f2f7ce4cbddae860fe4f3343e25bbd" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="json">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_e7f2f7ce4cbddae860fe4f3343e25bbd">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_e7f2f7ce4cbddae860fe4f3343e25bbd">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+  <div class="tab-pane " id="get-xml">
+  <h3>Call</h3>
+  <table class="table table-bordered request-block">
+  
+    <tr>
+  <td>POST</td>
+  <td>
+    <code>https://api.sendgrid.com/api/filter.setup.xml</code>
+  </td>
+</tr>
+
+    <tr>
+  <td>POST Data</td>
+  <td>
+    <code class="requestdata requestdata-data"><span class="data-key">api_user</span>=<span class="data-value">your_sendgrid_username</span>&<span class="data-key"><wbr>api_key</span>=<span class="data-value">your_sendgrid_password</span>&<span class="data-key"><wbr>name</span>=<span class="data-value">sendwithus</span>&<span class="data-key"><wbr>license_key</span>=<span class="data-value">1234567</span></code>
+  </td>
+</tr>
+
+  
+</table>
+
+  
+  <h3>Response</h3>
+  <div class="code-wrapper" id="wrapper_f06fded3cd0137e156353ea4340828de" itemscope itemtype="http://schema.org/Code">
+  <meta itemscope="name" content="">
+  <meta itemscope="programmingLangauge" content="xml">
+  <div class="code-buttons">
+    <ul class="nav nav-tabs">
+      <li class="pull-right">
+        <a class="copycode code-button btn-mini" id="copy_f06fded3cd0137e156353ea4340828de">
+          <i class="icon-copy"></i> Copy
+        </a>
+      </li>
+      <li class="pull-right">
+        <a class="expandcode code-button btn-mini" id="expand_f06fded3cd0137e156353ea4340828de">
+          <i class="icon-fullscreen"></i> Fullscreen
+        </a>
+      </li>
+    </ul>
+  </div>
+  <figure class="code" id="code_f06fded3cd0137e156353ea4340828de">
+  
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+</span></code></pre></td></tr></table></div></figure></div>
+</div>
+
+
+  </div>
+</div>
+
+
+
+
+
+  
+  
+    <div class="feedback">
+  <span class="prompt">Was this helpful?</span>
+  <a class="feedback-element feedback-positive" href="#">
+    <img src="/images/encircled-plus.png" alt="+" />
+    Yes
+  </a>
+  <a class="feedback-element feedback-negative" href="#">
+    <img src="/images/encircled-minus.png" alt="-" />
+    No
+  </a>
+  <a class="feedback-element feedback-more" href="#">
+    <img src="/images/feedback.png" alt="" />
+    Feedback
+  </a>
+</div>
+
+<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Feedback</h3>
+      </div>
+      <div class="modal-body">
+        <p>If you have a question that needs an answer, please try the <a href="https://community.sendgrid.com" target="_blank">community page</a> or <a href="https://sendgrid.zendesk.com/hc/en-us/search?utf8=%E2%9C%93&query=Filter%20Settings&commit=Search" target="_blank">contact support</a>.</p>
+        <p>Otherwise, please <a href="https://github.com/sendgrid/docs/issues/new?title=Filter%20Settings&body=https://nquinlan.github.io/docs/API_Reference/Web_API/filter_settings.html" target="_blank">open an issue</a> or <a class="" href="mailto:community@sendgrid.com?subject=[docs-feedback]%20Filter%20Settings&body=Hello!%0AI%20have%20some%20feedback%20regarding%20your%20documentation%3A%0A%0A%0A%0Ahttps://nquinlan.github.io/docs/API_Reference/Web_API/filter_settings.html">drop us a line.</a></p>
+        <p>Thanks for helping us improve the docs!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+</article>
+<div class="modal fade" id="credentialsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <form id="credentials">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input class="form-control" type="text" name="username" id="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input class="form-control" type="password" name="password" id="password">
+        </div>
+        <div class="form-group">
+          <label for="response-format">Response Format:</label>
+          <select name="response-format" id="response-format">
+            <option>JSON</option>
+            <option>XML</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="submit" id="save-credentials" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+<meta itemprop="specialty" content="email">
+<meta itemprop="interactivityType" content="mixed">
+</div>
+
+    </div>
+  </div>
+  
+	<iframe id="footer-iframe" src="//sendgrid.com/mkt-api/v1/header-footer?footer=1&css=1&js=1&iframe=1"></iframe>
+
+  
+</body>
+</html>
